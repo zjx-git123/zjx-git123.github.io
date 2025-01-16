@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvelynQ博客</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; /* 浅灰色背景 */
+            overflow-x: hidden; /* 防止水平滚动 */
+        }
+        .header {
+            background: linear-gradient(to right, #ADD8E6, #1E90FF, #D8BFD8, #551A8B); /* 从左到右的渐变 */
+            color: #ffffff; /* 白色文字 */
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            animation: fadeIn 1s forwards; /* 页面加载时的淡入效果 */
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+        .container {
+            width: 80%;
+            margin: 20px auto;
+            overflow: hidden;
+        }
+        nav {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 15px;
+            display: inline-block;
+            transition: transform 0.3s, background 0.3s; /* 悬停时的背景和缩放效果 */
+        }
+        nav a:hover {
+            background: #555;
+            transform: scale(1.1); /* 悬停时的缩放效果 */
+        }
+        .main-content {
+            background: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: none; /* 默认不显示 */
+        }
+        .main-content.active {
+            display: block; /* 显示活动的内容 */
+        }
+        .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>EvelynQ博客</h1>
+    </div>
+    <div class="container">
+        <nav>
+            <a href="javascript:void(0);" onclick="showContent('home')">首页</a>
+            <a href="javascript:void(0);" onclick="showContent('about')">关于我</a>
+            <a href="javascript:void(0);" onclick="showContent('portfolio')">作品集</a>
+            <a href="javascript:void(0);" onclick="showContent('contact')">联系方式</a>
+        </nav>
+        <div id="home" class="main-content active">
+            <h2>欢迎来到我的博客</h2>
+            <p>这里是我分享知识和经验的地方。</p>
+        </div>
+        <div id="about" class="main-content">
+            <h2>关于我</h2>
+            <p>EvelynQ,中文名郑俊汐，男，就读四川天府新区第五小学</p>
+        </div>
+        <div id="portfolio" class="main-content">
+            <h2>作品集</h2>
+            <p>详见github为:zjx-git123的帐号</p>
+            <p>详见共创世界为:GitHub程序猿的帐号</p>
+        </div>
+        <div id="contact" class="main-content">
+            <h2>联系方式</h2>
+            <p>zjx314@111.com</p>
+            <p>zjx314@88.com</p>
+        </div>
+    </div>
+    <script>
+        function showContent(contentId) {
+            // 隐藏所有内容
+            document.querySelectorAll('.main-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            // 显示选中的内容
+            document.getElementById(contentId).classList.add('active');
+        }
+    </script>
+</body>
+
+</html>
